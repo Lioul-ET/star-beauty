@@ -13,7 +13,7 @@ const HowItWorks = () => {
     {
       number: 2,
       icon: Clock,
-      title: "Wait for scudle",
+      title: "Wait for Schedule",
       description:
         "Have a virtual consultation with one of our certified specialists, or go for a physical visit to the doctor in case you opted for a physical check-up.",
     },
@@ -59,21 +59,25 @@ const HowItWorks = () => {
         <div className="lg:w-1/2 relative">
           <div className="relative">
             {/* Main Image Container */}
-            <div className=" rounded-2xl p-6 relative">
-              <div className="aspect-square bg-white rounded-2xl overflow-hidden relative">
+            <div className=" rounded-2xl p-6 relative ">
+              <div className="aspect-square bg-white rounded-2xl overflow-hidden relative ">
                 {/* Placeholder for doctor image */}
-                <img src="Doctor.png" alt="Doctor-img" className="z-20" />
-                <div className="bg-gradient-to-r from-[#eed2c6] via-[#f7eae4] to-transparent w-[90%] h-72  rounded-2xl -mt-80 border-[2px] border-[#C58F72] z-0"></div>
+                <img
+                  src="Doctor.png"
+                  alt="Doctor-img"
+                  className="z-20 w-[70%]"
+                />
+                <div className="bg-gradient-to-r from-[#eed2c6] via-[#f7eae4] to-transparent w-[90%] h-72  rounded-2xl -mt-72 border-[2px] border-[#C58F72] z-0"></div>
                 <img
                   src="cross.png"
                   alt="cross-img"
-                  className="h-52 w-28 -mt-[30rem] ml-96 "
+                  className="h-32 w-20 -mt-[22rem] ml-96 "
                 />
               </div>
             </div>
 
             {/* Badge */}
-            <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-lg">
+            <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-lg">
               <div className="flex items-center gap-2 text-[#C58F72]">
                 <span className="text-orange-400">
                   <Star />

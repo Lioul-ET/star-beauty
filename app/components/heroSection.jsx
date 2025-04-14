@@ -1,4 +1,3 @@
-"use client";
 import React, { useState } from "react";
 import { Calendar, ChevronRight, Mail, Phone, Star } from "lucide-react";
 import localFont from "next/font/local";
@@ -9,24 +8,38 @@ const CinzelDecorative = localFont({
   weight: "100 900",
 });
 
+const scrollToSection = (sectionId) => {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    const offset = 80; // adjust if you have a fixed header
+    const elementPosition = element.getBoundingClientRect().top;
+    const offsetPosition = elementPosition + window.pageYOffset - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: "smooth",
+    });
+  }
+};
+
 const HeroSection = () => {
   return (
-    <section className="mt-24" id="home">
-      <div className="absolute top-72">
+    <section id="home" className="mt-24 relative">
+      <div className="absolute top-72 z-10">
         <img src="background-line.png" alt="Star Beauty" className="w-[100%]" />
       </div>
-      <div className="container mx-auto px-6 py-12 flex flex-wrap items-center mt-4">
+      <div className="container mx-auto px-6 py-12 flex flex-wrap items-center mt-24 relative z-10">
         <div className="w-full md:w-1/2">
           <h1
             className={`text-4xl md:text-5xl font-bold mb-6 ${CinzelDecorative.className}`}
           >
-            <span className="">YOUR</span>
-            <span className="text-[#C97A60] ml-5">ONE-STOP</span>
-            <span className="block mt-4">DESTINATION FOR</span>
+            <span className="">Your</span>
+            <span className="text-[#C97A60] ml-5">One-Stop</span>
+            <span className="block mt-4">Destination for</span>
             <span className="block mt-4 text-[#C97A60]">
-              BEAUTY <span className="ml-5 ">& MEDICAL</span>{" "}
+              Beauty <span className="ml-5 ">& Medical</span>{" "}
             </span>
-            <span className="block mt-4 text-[#C97A60]">EXCELLENCE</span>
+            <span className="block mt-4 text-[#C97A60]">Execellence</span>
           </h1>
 
           <p className="mb-8 text-gray-600">
@@ -36,8 +49,11 @@ const HeroSection = () => {
             <span className="text-[#C97A60] font-bold"> Get-Started</span> or
             Book an Appointment today.
           </p>
-          <button className="bg-[#C97A60] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold">
-            Book an appointment
+          <button
+            className="bg-[#C97A60] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold items-center space-x-2"
+            onClick={() => scrollToSection("book")}
+          >
+            <span>Book an appointment</span>
             <ChevronRight color="#fff" />
           </button>
         </div>
@@ -48,12 +64,12 @@ const HeroSection = () => {
               <img
                 src="hero-img2.png"
                 alt="hero-img"
-                className="w-[100%] -mt-9 "
+                className="w-[100%] -mt-9"
               />
             </div>
           </div>
 
-          <div className="absolute top-48 right-1 bg-white p-4 rounded-lg shadow-lg">
+          <div className="absolute top-48 right-1 bg-white p-4 rounded-lg shadow-lg z-20">
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
                 <div className="flex -space-x-2">
@@ -75,7 +91,7 @@ const HeroSection = () => {
             </div>
           </div>
 
-          <div className="absolute bottom-2 left-1 bg-white p-4 rounded-lg shadow-lg">
+          <div className="absolute bottom-2 left-1 bg-white p-4 rounded-lg shadow-lg z-20">
             <div className="flex gap-2">
               <div className="p-1 bg-[#EFF9FF]">
                 <Star fill="#D53D17" color="#D53D17" />

@@ -28,27 +28,15 @@ const ServicesSection = () => {
   const services = [
     {
       icon: Video,
-      title: "Dental",
+      title: "Dental Treatment",
       description:
         "Consult with top doctors across various specialties via video or chat communication. Choose the best time for an in-person visit with our easy-to-use scheduling system.",
     },
     {
-      icon: Calendar,
-      title: "Booking Appointments",
-      description:
-        "Choose the best time for an in-person visit with our easy-to-use scheduling system, or proceed with our online consultation features.",
-    },
-    {
       icon: Stethoscope,
-      title: "Plastic",
+      title: "Plastic Surgery",
       description:
         "Receive and renew prescriptions digitally after your consultation with our specialists.",
-    },
-    {
-      icon: FileText,
-      title: "Hear restoration",
-      description:
-        "Obtain necessary medical notes for work or school with only a few clicks of hassle.",
     },
     {
       icon: Syringe,
@@ -56,19 +44,31 @@ const ServicesSection = () => {
       description:
         "Skip the pharmacy queues and save time + energy by ordering medicine refills online.",
     },
+    {
+      icon: FileText,
+      title: "Hair Restoration",
+      description:
+        "Obtain necessary medical notes for work or school with only a few clicks of hassle.",
+    },
+    {
+      icon: Calendar,
+      title: "Booking Appointments",
+      description:
+        "Choose the best time for an in-person visit with our easy-to-use scheduling system, or proceed with our online consultation features.",
+    },
   ];
 
   return (
-    <section id="services" className="max-w-6xl mx-auto mt-32 p-2 md:p-0">
+    <section id="services" className="max-w-6xl mx-auto mt-24 p-2 md:p-0">
       {/* Header Section */}
       <motion.div
-        className="mb-16 flex flex-col justify-center items-center"
+        className="mb-16 flex flex-col justify-center items-center mt-8"
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-50px" }}
         transition={{ duration: 0.6 }}
       >
-        <div className="flex items-center gap-2 mb-6">
+        <div className="flex items-center gap-2 mb-6 mt-14">
           <h1 className="text-4xl font-bold">
             Top <span className="text-orange-400">services</span> we offer
           </h1>
@@ -104,7 +104,7 @@ const ServicesSection = () => {
       </div>
 
       <motion.div
-        className="absolute right-56 -mt-16"
+        className="absolute md:right-56 md:-mt-16"
         initial={{ opacity: 0, x: 50 }}
         whileInView={{ opacity: 1, x: 0 }}
         viewport={{ once: true }}

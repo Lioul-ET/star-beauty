@@ -33,7 +33,7 @@ const LastSection = () => {
             <img
               src="male-doctor.png"
               alt="maleDoctor"
-              className="md:absolute relative md:w-[16%] w-[60%] md:-mt-1 md:-ml-9"
+              className="md:absolute relative md:w-[16%] w-[60%] md:-mt-7 md:-ml-9"
             />
           </div>
           <div className="flex-1 md:w-[50%] w-[90%] z-40">

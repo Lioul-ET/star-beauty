@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const AboutSection = () => {
   /* About Section */
   return (
-    <section id="about" className="max-w-6xl mx-auto mt-32 p-2 md:p-0">
+    <section className="max-w-6xl mx-auto mt-32 p-2 md:p-0">
       <motion.div
         className="mt-20 bg-white rounded-2xl p-8 shadow-sm border-[2px] border-[#f1bfa8] shadow-[#a8a4a4]"
         initial={{ opacity: 0, y: 50 }}
@@ -15,7 +15,7 @@ const AboutSection = () => {
         id="about"
       >
         <motion.h2
-          className="text-2xl font-bold mb-2 flex justify-center"
+          className="text-2xl font-bold mb-2 md:flex justify-center"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}

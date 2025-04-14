@@ -83,7 +83,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`py-4 px-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`px-6 fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled ? "bg-white shadow-lg" : "bg-transparent"
       }`}
     >
@@ -97,15 +97,25 @@ const Navbar = () => {
             <button
               key={id}
               onClick={() => handleSectionClick(id)}
-              className={`relative px-2 py-1 text-gray-600 hover:text-gray-900 transition-colors ${
-                activeSection === id ? "text-orange-600" : ""
+              className={`relative px-2 py-1  hover:text-gray-900 transition-colors ${
+                activeSection === id
+                  ? id === "contact"
+                    ? "text-[#C97A60]"
+                    : "text-[#C97A60]"
+                  : ""
+              }${
+                id === "contact"
+                  ? id === activeSection
+                    ? "text-[#C97A60]"
+                    : "bg-[#C97A60] text-[#fff] p-2 rounded-lg"
+                  : "text-gray-600"
               }`}
             >
               {label}
               {activeSection === id && (
                 <motion.div
                   layoutId="activeSection"
-                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-orange-600"
+                  className="absolute bottom-0 left-0 right-0 h-0.5 bg-[#C97A60]"
                   initial={false}
                   transition={{
                     type: "spring",
@@ -124,10 +134,6 @@ const Navbar = () => {
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
-
-        <button className="hidden md:block bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 shadow-xl shadow-gray-300 font-bold">
-          Join us
         </button>
       </div>
 
@@ -156,9 +162,6 @@ const Navbar = () => {
                   )}
                 </button>
               ))}
-              <button className="bg-orange-600 text-white px-6 py-2 rounded-lg hover:bg-orange-700 shadow-xl shadow-gray-300 font-bold">
-                Join us
-              </button>
             </div>
           </motion.div>
         )}
