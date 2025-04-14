@@ -3,19 +3,11 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 
-
-const CinzelDecorative = localFont({
-  src: "./fonts/CinzelDecorative-Regular.ttf",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 const Manrope = localFont({
   src: "./fonts/Manrope-VariableFont_wght.ttf",
   variable: "--font-geist-mono",
   weight: "100 900",
 });
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -29,11 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${Manrope.className} antialiased`}
-      >
-        {children}
-      </body>
+      <body className={`${Manrope.className} antialiased`}>{children}</body>
     </html>
   );
 }
