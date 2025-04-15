@@ -28,15 +28,15 @@ const LastSection = () => {
         </p>
 
         {/* Doctor Card */}
-        <div className="mt-12 bg-[#C58F72] rounded-2xl md:p-8 p-2 flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
+        <div className="mt-12 bg-[#C58F72] rounded-2xl  flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
           <div className="md:h-48 rounded-full flex items-center justify-center md:w-[30%] w-[100%]">
             <img
               src="male-doctor.png"
               alt="maleDoctor"
-              className="md:absolute relative md:w-[16%] w-[60%] md:-mt-7 md:-ml-9"
+              className="md:w-[100%] w-[70%] md:-mt-[1.5rem] md:-ml-2"
             />
           </div>
-          <div className="flex-1 md:w-[50%] w-[90%] z-40">
+          <div className="flex-1 md:w-[50%] w-[90%] z-40 p-8">
             <h3 className="text-white text-2xl font-bold">
               Dr. Mark Lee (Dermatologist )
             </h3>
