@@ -82,7 +82,7 @@ const BeautyClinic = () => {
 
   return (
     <motion.div
-      className="min-h-screen bg-white"
+      className="min-h-screen  bg-white"
       initial="hidden"
       animate="visible"
       variants={fadeInUp}
@@ -283,6 +283,7 @@ const BeautyClinic = () => {
         whileInView={{ opacity: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
+        className="w-[100%]"
       >
         <AboutSection />
       </motion.div>

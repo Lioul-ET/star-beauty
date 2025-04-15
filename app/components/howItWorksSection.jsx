@@ -20,7 +20,7 @@ const HowItWorks = () => {
   ];
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-16">
+    <div className="md:max-w-6xl w-[100%] md:mx-auto md:px-4 md:py-16">
       {/* Header Section */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">
@@ -34,9 +34,9 @@ const HowItWorks = () => {
       </div>
 
       {/* Main Content */}
-      <div className="flex flex-col lg:flex-row items-center gap-8">
+      <div className="md:flex flex-col lg:flex-row items-center gap-8">
         {/* Steps Section */}
-        <div className="lg:w-1/2 space-y-20">
+        <div className="lg:w-1/2 w-[100%] space-y-20">
           {steps.map((step, index) => (
             <div key={index} className="flex items-start gap-4">
               {/* Step Number */}
@@ -56,7 +56,7 @@ const HowItWorks = () => {
         </div>
 
         {/* Image Section */}
-        <div className="lg:w-1/2 relative">
+        <div className="lg:w-1/2 w-[100%] relative">
           <div className="relative">
             {/* Main Image Container */}
             <div className=" rounded-2xl p-6 relative ">
@@ -67,17 +67,17 @@ const HowItWorks = () => {
                   alt="Doctor-img"
                   className="z-20 w-[70%]"
                 />
-                <div className="bg-gradient-to-r from-[#eed2c6] via-[#f7eae4] to-transparent w-[90%] h-72  rounded-2xl -mt-72 border-[2px] border-[#C58F72] z-0"></div>
+                <div className="bg-gradient-to-r from-[#eed2c6] via-[#f7eae4] to-transparent w-[90%] md:h-72 h-56  rounded-2xl md:-mt-72 -mt-56 border-[2px] border-[#C58F72] z-0"></div>
                 <img
                   src="cross.png"
                   alt="cross-img"
-                  className="h-32 w-20 -mt-[22rem] ml-96 "
+                  className="h-32 w-20 md:-mt-[22rem] -mt-[40rem] ml-96 "
                 />
               </div>
             </div>
 
             {/* Badge */}
-            <div className="absolute bottom-32 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-lg">
+            <div className="absolute md:bottom-32 bottom-24 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-lg">
               <div className="flex items-center gap-2 text-[#C58F72]">
                 <span className="text-orange-400">
                   <Star />
@@ -89,7 +89,7 @@ const HowItWorks = () => {
             </div>
 
             {/* Decorative Elements */}
-            <div className="absolute -top-4 -right-4 w-16 h-16 text-orange-400 opacity-20">
+            <div className="absolute -top-4 md:-right-4 w-16 h-16 text-orange-400 opacity-20">
               <svg viewBox="0 0 24 24" fill="currentColor">
                 <path d="M12 4v16m-8-8h16" />
               </svg>

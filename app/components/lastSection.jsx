@@ -47,7 +47,7 @@ const LastSection = () => {
               dermatological care.He's known for his precision and commitment to
               patient-centered care.
             </p>
-            <button className="mt-4 bg-white text-[#C58F72] px-9 py-4 rounded-lg flex items-center gap-2 text-xl font-bold">
+            <button className="mt-6 bg-white text-[#C58F72] px-9 py-2 rounded-lg flex items-center gap-2 text-xl font-bold">
               Book appointment
               <Phone className="w-4 h-4" />
             </button>
