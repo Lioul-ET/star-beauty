@@ -39,7 +39,7 @@ const HeroSection = () => {
             <span className="block mt-4 text-[#C97A60]">
               Beauty <span className="ml-5 ">& Medical</span>{" "}
             </span>
-            <span className="block mt-4 text-[#C97A60]">Execellence</span>
+            <span className="block mt-4 text-[#C97A60]">Exellence</span>
           </h1>
 
           <p className="mb-8 text-gray-600">
