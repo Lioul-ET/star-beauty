@@ -3,7 +3,7 @@ import { Calendar, Video, Stethoscope, FileText, Syringe } from "lucide-react";
 import { motion } from "framer-motion";
 import AboutSection from "./aboutSection";
 
-const ServiceCard = ({ icon: Icon, title, description, index }) => (
+const ServiceCard = ({ img, title, description, index }) => (
   <motion.div
     initial={{ opacity: 0, y: 20 }}
     whileInView={{ opacity: 1, y: 0 }}
@@ -12,24 +12,12 @@ const ServiceCard = ({ icon: Icon, title, description, index }) => (
     whileHover={{ scale: 1.02 }}
     className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border-[1px] border-orange-400"
   >
-    <motion.div
-      className="mb-4"
-      whileHover={{ rotate: 360 }}
-      transition={{ duration: 0.5 }}
-    >
-      {title !== "Hair Restoration" && title !== "Booking Appointments" && (
-        <Icon className="w-8 h-8 text-orange-400" />
-      )}
-      {title === "Hair Restoration" && (
-        <img
-          src="healthy-hair.svg"
-          alt="hair care icons"
-          className="w-9 h-9 text-orange-400"
-        />
-      )}
-      {title === "Booking Appointments" && (
-        <img src="calendar.svg" alt="hair care icons" className="w-9 h-9" />
-      )}
+    <motion.div className="mb-4" transition={{ duration: 0.5 }}>
+      <img
+        src={img}
+        alt="hair care icons"
+        className="w-[100%]  text-orange-400 rounded-2xl"
+      />
     </motion.div>
     <h3 className="text-lg font-semibold mb-2 text-gray-800">{title}</h3>
     <p className="text-gray-600 text-sm">{description}</p>
@@ -39,31 +27,31 @@ const ServiceCard = ({ icon: Icon, title, description, index }) => (
 const ServicesSection = () => {
   const services = [
     {
-      icon: Video,
+      img: "dental.png",
       title: "Dental Treatment",
       description:
         "Consult with top doctors across various specialties via video or chat communication. Choose the best time for an in-person visit with our easy-to-use scheduling system.",
     },
     {
-      icon: Stethoscope,
+      img: "plastic.png",
       title: "Plastic Surgery",
       description:
         "Receive and renew prescriptions digitally after your consultation with our specialists.",
     },
     {
-      icon: Syringe,
+      img: "laser-treatment.png",
       title: "Laser treatments",
       description:
         "Skip the pharmacy queues and save time + energy by ordering medicine refills online.",
     },
     {
-      icon: FileText,
+      img: "hair-trnasplant.png",
       title: "Hair Restoration",
       description:
         "Obtain necessary medical notes for work or school with only a few clicks of hassle.",
     },
     {
-      icon: Calendar,
+      img: "appointment.png",
       title: "Booking Appointments",
       description:
         "Choose the best time for an in-person visit with our easy-to-use scheduling system, or proceed with our online consultation features.",
