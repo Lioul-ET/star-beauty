@@ -124,3 +124,7 @@
 .backg {
   z-index: 30;
 }
+
+.filter-orange {
+  filter: sepia(1) saturate(5) hue-rotate(-20deg);
+}

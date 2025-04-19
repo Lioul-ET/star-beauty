@@ -17,7 +17,19 @@ const ServiceCard = ({ icon: Icon, title, description, index }) => (
       whileHover={{ rotate: 360 }}
       transition={{ duration: 0.5 }}
     >
-      <Icon className="w-8 h-8 text-orange-400" />
+      {title !== "Hair Restoration" && title !== "Booking Appointments" && (
+        <Icon className="w-8 h-8 text-orange-400" />
+      )}
+      {title === "Hair Restoration" && (
+        <img
+          src="healthy-hair.svg"
+          alt="hair care icons"
+          className="w-9 h-9 text-orange-400"
+        />
+      )}
+      {title === "Booking Appointments" && (
+        <img src="calendar.svg" alt="hair care icons" className="w-9 h-9" />
+      )}
     </motion.div>
     <h3 className="text-lg font-semibold mb-2 text-gray-800">{title}</h3>
     <p className="text-gray-600 text-sm">{description}</p>
