@@ -40,11 +40,11 @@ const LastSection = () => {
 
         {/* Doctor Card */}
         <div className="mt-12 bg-[#c06464] rounded-2xl flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
-          <div className="md:h-48 rounded-full flex items-center justify-center md:w-[30%] w-[100%]">
+          <div className="md:h-36 rounded-full flex items-center justify-center md:w-[30%] w-[100%]">
             <img
               src="male-doctor.png"
               alt="Dottore"
-              className="md:w-[100%] w-[70%] md:-mt-[1.5rem] md:-ml-2"
+              className="md:w-[100%] w-[70%] md:-mt-[3.2rem] md:-ml-2"
             />
           </div>
           <div className="flex-1 md:w-[50%] w-[90%] z-40 p-8">

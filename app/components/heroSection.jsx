@@ -11,7 +11,7 @@ const CinzelDecorative = localFont({
 const scrollToSection = (sectionId) => {
   const element = document.getElementById(sectionId);
   if (element) {
-    const offset = 80; // adjust if you have a fixed header
+    const offset = 80;
     const elementPosition = element.getBoundingClientRect().top;
     const offsetPosition = elementPosition + window.pageYOffset - offset;
 
@@ -33,26 +33,25 @@ const HeroSection = () => {
           <h1
             className={`text-4xl md:text-5xl font-bold mb-6 ${CinzelDecorative.className}`}
           >
-            <span>Un approccio moderno</span>
-            <span className="text-[#d62c16] ml-5">alla bellezza</span>
+            <span>Un Approccio</span>
+            <span className="text-[#d62c16] ml-5">Moderno</span>
             <span className="block mt-4 text-[#d62c16]">
-              alla salute,{" "}
-              <span className="ml-5 text-foreground">e alla cura</span>
+              alla Bellezza,{" "}
+              <span className="ml-5 text-foreground">Salute</span>
             </span>
             <span className="block mt-4 text-[#d62c16]">
-              di sé<span className="ml-5">🇮🇹 🇦🇱</span>
+              & Cura di Sé<span className="ml-5">🇮🇹 🇦🇱</span>
             </span>
-            {/* <span className="block mt-4 text-[#d62c16]">🇮🇹 🇦🇱</span> */}
           </h1>
 
           <p className="mb-8 text-gray-600">
-            Esperienza{" "}
+            Scopri cure di{" "}
             <span className="text-[#d62c16] font-semibold">
-              di classe mondiale
+              livello mondiale
             </span>{" "}
-            Assistenza odontoiatrica, chirurgia plastica, trapianto di capelli e
-            trattamenti laser: tutto in un unico luogo comodo e accessibile.
-            Scelto da professionisti internazionali clients from{" "}
+            in odontoiatria, chirurgia plastica, restauro capillare e
+            trattamenti laser—tutto in un'unica sede conveniente. Fidati dei
+            nostri clienti internazionali da{" "}
             <span className="font-semibold">Italia 🇮🇹</span>,
             <span className="ml-1 font-semibold">Albania 🇦🇱</span>, e Germania.
             <span className="text-[#d62c16] font-bold ml-1">Inizia ora</span> o
@@ -63,7 +62,7 @@ const HeroSection = () => {
             className="bg-[#C97A60] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold items-center space-x-2"
             onClick={() => scrollToSection("book")}
           >
-            <span>Prenota un appuntamento</span>
+            <span>Prenota un Appuntamento</span>
             <ChevronRight color="#fff" />
           </button>
         </div>
@@ -73,7 +72,7 @@ const HeroSection = () => {
             <div className="w-full h-full flex justify-center items-center">
               <img
                 src="hero-img2.png"
-                alt="hero-img"
+                alt="Immagine principale"
                 className="w-[100%] -mt-9"
               />
             </div>
@@ -85,18 +84,24 @@ const HeroSection = () => {
                 <div className="flex -space-x-2">
                   {[1, 2, 3, 4].map((i) => (
                     <div key={i} className="w-8 h-8 rounded-full bg-gray-300">
-                      <img src={`${i}.png`} className="rounded-full" />
+                      <img
+                        src={`${i}.png`}
+                        className="rounded-full"
+                        alt={`Cliente ${i}`}
+                      />
                     </div>
                   ))}
                 </div>
                 <span className="text-lg font-bold">2400+</span>
               </div>
-              <span className="text-red-600 font-bold">Clienti felici</span>
+              <span className="text-red-600 font-bold">
+                Clienti Soddisfatti
+              </span>
             </div>
             <div className="flex text-yellow-400 mt-1 text-xl items-center">
               {"★".repeat(4.7)}
               <span className="text-[#6D6D6D] text-sm font-bold">
-                ( 4 Stars)
+                (4 Stelle)
               </span>
             </div>
           </div>
@@ -107,7 +112,7 @@ const HeroSection = () => {
                 <Star fill="#D53D17" color="#D53D17" />
               </div>
               <div className="text-[#d51717] font-bold mt-[0.5px]">
-                Prenotazione facile degli appuntamenti
+                Prenotazioni Semplici
               </div>
             </div>
           </div>
