@@ -21,24 +21,91 @@ export default function ModernTranslator() {
 
   const isDevelopment = process.env.NODE_ENV === "development";
 
+  // Enhanced translation element finder with retries
+  const findTranslateElements = async () => {
+    let attempts = 0;
+    const maxAttempts = 5;
+    const delay = 300;
+
+    while (attempts < maxAttempts) {
+      attempts++;
+
+      const select = document.querySelector(".goog-te-combo");
+      const iframe = document.querySelector("iframe.goog-te-menu-frame");
+
+      if (select || iframe) {
+        return { select, iframe };
+      }
+
+      await new Promise((resolve) => setTimeout(resolve, delay));
+    }
+
+    throw new Error(
+      "Failed to find translation elements after multiple attempts"
+    );
+  };
+
+  const translatePage = async (targetLang) => {
+    setIsTranslating(true);
+    setTranslateError("");
+
+    try {
+      if (isDevelopment) {
+        console.log(`[DEV] Mock translation to ${targetLang}`);
+        setSelectedLang(targetLang);
+        setIsOpen(false);
+        return;
+      }
+
+      if (!translateLoaded) {
+        throw new Error("Translator not ready");
+      }
+
+      // Find elements with retry logic
+      const { select, iframe } = await findTranslateElements();
+
+      // Method 1: Use the select element
+      if (select) {
+        select.value = targetLang;
+        select.dispatchEvent(new Event("change"));
+        console.log("Translation triggered via select element");
+      }
+      // Method 2: Iframe fallback
+      else if (iframe?.contentWindow) {
+        iframe.contentWindow.postMessage(
+          {
+            command: "translate",
+            langPair: `en|${targetLang}`,
+          },
+          "*"
+        );
+        console.log("Translation triggered via iframe message");
+      }
+
+      setSelectedLang(targetLang);
+      setIsOpen(false);
+    } catch (error) {
+      console.error("Translation error:", error);
+      setTranslateError("Translation failed - please try again");
+      setSelectedLang(targetLang);
+      setIsOpen(false);
+    } finally {
+      setIsTranslating(false);
+    }
+  };
+
   useEffect(() => {
     if (isDevelopment) {
       setTranslateLoaded(true);
       return;
     }
 
-    window.googleTranslateElementInit = function () {
-      if (
-        !window.google ||
-        !window.google.translate ||
-        !window.google.translate.TranslateElement
-      ) {
-        console.error("Google Translate API not loaded properly");
-        setTranslateError("Translation service failed to load");
-        return;
-      }
-
+    const handleInit = () => {
       try {
+        if (!window.google?.translate?.TranslateElement) {
+          throw new Error("Google Translate API not available");
+        }
+
         new window.google.translate.TranslateElement(
           {
             pageLanguage: "en",
@@ -50,6 +117,7 @@ export default function ModernTranslator() {
           "google_translate_element"
         );
 
+        // Ensure elements are properly hidden
         const style = document.createElement("style");
         style.textContent = `
           .goog-te-banner-frame, .goog-te-gadget,
@@ -68,10 +136,12 @@ export default function ModernTranslator() {
 
         setTranslateLoaded(true);
       } catch (error) {
-        console.error("Google Translate initialization error:", error);
+        console.error("Initialization error:", error);
         setTranslateError("Failed to initialize translator");
       }
     };
+
+    window.googleTranslateElementInit = handleInit;
 
     if (!document.querySelector('script[src*="translate.google.com"]')) {
       const script = document.createElement("script");
@@ -80,7 +150,7 @@ export default function ModernTranslator() {
       script.async = true;
       script.onerror = () => {
         console.error("Failed to load Google Translate script");
-        setTranslateError("Failed to load translation service");
+        setTranslateError("Translation service unavailable");
         setTranslateLoaded(false);
       };
       document.body.appendChild(script);
@@ -91,82 +161,9 @@ export default function ModernTranslator() {
       const script = document.querySelector(
         'script[src*="translate.google.com"]'
       );
-      if (script) {
-        document.body.removeChild(script);
-      }
+      if (script) document.body.removeChild(script);
     };
   }, [isDevelopment]);
-
-  const translatePage = async (targetLang) => {
-    setIsTranslating(true);
-    setTranslateError("");
-
-    try {
-      if (isDevelopment) {
-        console.log(`[DEV] Mock translation to ${targetLang}`);
-        setSelectedLang(targetLang);
-        setIsOpen(false);
-        return;
-      }
-
-      if (!translateLoaded) {
-        throw new Error("Translator not ready");
-      }
-
-      const googleTranslateElement = document.getElementById(
-        "google_translate_element"
-      );
-      if (googleTranslateElement) {
-        googleTranslateElement.innerHTML = "";
-      }
-
-      new window.google.translate.TranslateElement(
-        {
-          pageLanguage: "en",
-          includedLanguages: languages.map((l) => l.code).join(","),
-          layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE,
-          autoDisplay: false,
-        },
-        "google_translate_element"
-      );
-
-      await new Promise((resolve) => setTimeout(resolve, 500));
-
-      const select = document.querySelector(".goog-te-combo");
-      if (select) {
-        select.value = targetLang;
-        select.dispatchEvent(new Event("change"));
-        setSelectedLang(targetLang);
-        setIsOpen(false);
-        return;
-      }
-
-      const iframe = document.querySelector("iframe.goog-te-menu-frame");
-      if (iframe?.contentWindow) {
-        iframe.contentWindow.postMessage(
-          {
-            command: "translate",
-            langPair: `en|${targetLang}`,
-          },
-          "*"
-        );
-        setSelectedLang(targetLang);
-        setIsOpen(false);
-        return;
-      }
-
-      throw new Error("Failed to find translation elements");
-    } catch (error) {
-      console.error("Translation error:", error);
-      setTranslateError(
-        "Translation failed - page may not be fully translated"
-      );
-      setSelectedLang(targetLang);
-      setIsOpen(false);
-    } finally {
-      setIsTranslating(false);
-    }
-  };
 
   return (
     <>
