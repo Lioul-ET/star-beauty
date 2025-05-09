@@ -15,7 +15,7 @@ const ServiceCard = ({ img, title, description, index }) => (
     <motion.div className="mb-4" transition={{ duration: 0.5 }}>
       <img
         src={img}
-        alt="hair care icons"
+        alt="Icone servizi medici"
         className="w-[100%]  text-orange-400 rounded-2xl"
       />
     </motion.div>
@@ -28,33 +28,33 @@ const ServicesSection = () => {
   const services = [
     {
       img: "dental.png",
-      title: "Dental Treatment",
+      title: "Trattamento Dentale",
       description:
-        "Consult with top doctors across various specialties via video or chat communication. Choose the best time for an in-person visit with our easy-to-use scheduling system.",
+        "Consulta i migliori medici di varie specialità via video o chat. Scegli il momento migliore per una visita in persona con il nostro sistema di prenotazione intuitivo.",
     },
     {
       img: "pl.png",
-      title: "Plastic Surgery",
+      title: "Chirurgia Plastica",
       description:
-        "Receive and renew prescriptions digitally after your consultation with our specialists.",
+        "Ricevi e rinnova le prescrizioni digitalmente dopo la consultazione con i nostri specialisti.",
     },
     {
       img: "laser-treatment.png",
-      title: "Laser treatments",
+      title: "Trattamenti Laser",
       description:
-        "Skip the pharmacy queues and save time + energy by ordering medicine refills online.",
+        "Evita le code in farmacia e risparmia tempo ed energie ordinando i tuoi farmaci online.",
     },
     {
       img: "hT.png",
-      title: "Hair Restoration",
+      title: "Restauro Capillare",
       description:
-        "Obtain necessary medical notes for work or school with only a few clicks of hassle.",
+        "Ottieni i certificati medici necessari per lavoro o scuola con pochi semplici clic.",
     },
     {
       img: "appointment.png",
-      title: "Booking Appointments",
+      title: "Prenotazioni",
       description:
-        "Choose the best time for an in-person visit with our easy-to-use scheduling system, or proceed with our online consultation features.",
+        "Scegli l'orario ideale per una visita in persona con il nostro sistema di prenotazione, oppure utilizza la nostra consulenza online.",
     },
   ];
 
@@ -70,7 +70,8 @@ const ServicesSection = () => {
       >
         <div className="flex items-center gap-2 mb-6 mt-14">
           <h1 className="text-4xl font-bold">
-            Top <span className="text-red-500">services</span> we offer
+            I migliori <span className="text-red-500">servizi</span> che
+            offriamo
           </h1>
         </div>
         <motion.p
@@ -80,9 +81,9 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          In today's fast-paced world, your health deserves the utmost attention
-          and convenience. That's why we offer a suite of integrated services
-          designed to cater to your healthcare needs digitally.
+          In un mondo frenetico, la tua salute merita la massima attenzione e
+          comodità. Per questo offriamo servizi integrati pensati per soddisfare
+          le tue esigenze di cura digitale.
         </motion.p>
       </motion.div>
 

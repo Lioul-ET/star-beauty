@@ -11,8 +11,8 @@ const Navbar = () => {
   useEffect(() => {
     const observerOptions = {
       root: null,
-      rootMargin: "-20% 0px -20% 0px", // Modified rootMargin
-      threshold: 0.5, // Simplified threshold
+      rootMargin: "-20% 0px -20% 0px",
+      threshold: 0.5,
     };
 
     const observerCallback = (entries) => {
@@ -28,7 +28,6 @@ const Navbar = () => {
       observerOptions
     );
 
-    // Wait for DOM to be ready
     const sections = document.querySelectorAll("section[id]");
     if (sections.length) {
       sections.forEach((section) => {
@@ -67,7 +66,6 @@ const Navbar = () => {
         behavior: "smooth",
       });
 
-      // Manually set active section
       setActiveSection(sectionId);
       setIsOpen(false);
     }
@@ -75,10 +73,10 @@ const Navbar = () => {
 
   const navItems = [
     { id: "home", label: "Home" },
-    { id: "services", label: "Services" },
-    { id: "about", label: "About us" },
-    { id: "testimonial", label: "Testimonial" },
-    { id: "contact", label: "Contact us" },
+    { id: "services", label: "Servizi" },
+    { id: "about", label: "Chi siamo" },
+    { id: "testimonial", label: "Testimonianze" },
+    { id: "contact", label: "Contatti" },
   ];
 
   return (
@@ -97,7 +95,7 @@ const Navbar = () => {
             <button
               key={id}
               onClick={() => handleSectionClick(id)}
-              className={`relative px-2 py-1  hover:text-gray-900 transition-colors ${
+              className={`relative px-2 py-1 hover:text-gray-900 transition-colors ${
                 activeSection === id
                   ? id === "contact"
                     ? "text-[#C97A60]"
@@ -131,7 +129,7 @@ const Navbar = () => {
         <button
           className="md:hidden p-2 text-gray-600 hover:text-gray-900 focus:outline-none"
           onClick={handleMenuClick}
-          aria-label="Toggle menu"
+          aria-label="Menu"
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
         </button>

@@ -33,35 +33,37 @@ const HeroSection = () => {
           <h1
             className={`text-4xl md:text-5xl font-bold mb-6 ${CinzelDecorative.className}`}
           >
-            <span>A Modern</span>
-            <span className="text-[#d62c16] ml-5">Approach</span>
+            <span>Un approccio moderno</span>
+            <span className="text-[#d62c16] ml-5">alla bellezza</span>
             <span className="block mt-4 text-[#d62c16]">
-              to Beauty, <span className="ml-5 text-foreground">Health</span>
+              alla salute,{" "}
+              <span className="ml-5 text-foreground">e alla cura</span>
             </span>
             <span className="block mt-4 text-[#d62c16]">
-              & Self-Care<span className="ml-5">🇮🇹 🇦🇱</span>
+              di sé<span className="ml-5">🇮🇹 🇦🇱</span>
             </span>
             {/* <span className="block mt-4 text-[#d62c16]">🇮🇹 🇦🇱</span> */}
           </h1>
 
           <p className="mb-8 text-gray-600">
-            Experience{" "}
-            <span className="text-[#d62c16] font-semibold">world-class</span>{" "}
-            care in dental, plastic surgery, hair restoration, and laser
-            treatments—all in one convenient location. Trusted by international
-            clients from <span className="font-semibold">Italy 🇮🇹</span>,
-            <span className="ml-1 font-semibold">Albania 🇦🇱</span>, and Germany.
-            <span className="text-[#d62c16] font-bold ml-1">
-              Get started
+            Esperienza{" "}
+            <span className="text-[#d62c16] font-semibold">
+              di classe mondiale
             </span>{" "}
-            or book your appointment today.
+            Assistenza odontoiatrica, chirurgia plastica, trapianto di capelli e
+            trattamenti laser: tutto in un unico luogo comodo e accessibile.
+            Scelto da professionisti internazionali clients from{" "}
+            <span className="font-semibold">Italia 🇮🇹</span>,
+            <span className="ml-1 font-semibold">Albania 🇦🇱</span>, e Germania.
+            <span className="text-[#d62c16] font-bold ml-1">Inizia ora</span> o
+            prenota il tuo appuntamento oggi.
           </p>
 
           <button
-            className="bg-[#d62c16] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold items-center space-x-2"
+            className="bg-[#C97A60] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold items-center space-x-2"
             onClick={() => scrollToSection("book")}
           >
-            <span>Book an Appointment</span>
+            <span>Prenota un appuntamento</span>
             <ChevronRight color="#fff" />
           </button>
         </div>
@@ -89,7 +91,7 @@ const HeroSection = () => {
                 </div>
                 <span className="text-lg font-bold">2400+</span>
               </div>
-              <span className="text-red-600 font-bold">Happy Customers</span>
+              <span className="text-red-600 font-bold">Clienti felici</span>
             </div>
             <div className="flex text-yellow-400 mt-1 text-xl items-center">
               {"★".repeat(4.7)}
@@ -105,7 +107,7 @@ const HeroSection = () => {
                 <Star fill="#D53D17" color="#D53D17" />
               </div>
               <div className="text-[#d51717] font-bold mt-[0.5px]">
-                Easy Appointment Booking
+                Prenotazione facile degli appuntamenti
               </div>
             </div>
           </div>

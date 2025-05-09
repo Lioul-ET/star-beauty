@@ -137,7 +137,8 @@ const BeautyClinic = () => {
       <div>
         <div className="flex items-center justify-center gap-2 mb-6 mt-14">
           <h1 className="text-4xl font-bold text-center">
-            Book <span className="text-red-500">Your Appointment</span> Here
+            Prenota <span className="text-red-500">Il Tuo Appuntamento</span>{" "}
+            Qui
           </h1>
         </div>
 
@@ -148,10 +149,10 @@ const BeautyClinic = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          Your well-being matters — and taking that first step toward better
-          health has never been easier. Whether you’re due for a routine
-          check-up, or a wellness treatment, our team is here to help you feel
-          your best.
+          Il tuo benessere è importante — e fare il primo passo verso una salute
+          migliore non è mai stato così semplice. Che tu abbia bisogno di un
+          controllo di routine o di un trattamento di benessere, il nostro team
+          è qui per aiutarti a sentirti al meglio.
         </motion.p>
 
         <motion.div
@@ -162,7 +163,7 @@ const BeautyClinic = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-2xl font-semibold mb-6">
-            Easily book an appointment with this questions.
+            Prenota facilmente un appuntamento rispondendo a queste domande.
           </h2>
           <motion.form
             onSubmit={handleSubmit}
@@ -179,14 +180,14 @@ const BeautyClinic = () => {
               <label className="flex gap-2">
                 <User color="#FF6803" size={25} />
                 <span className="text-[#888888] font-semibold text-lg">
-                  Full Name
+                  Nome Completo
                 </span>
               </label>
               <div className="relative">
                 <input
                   type="text"
                   name="fullName"
-                  placeholder="Enter Your Full Name"
+                  placeholder="Inserisci il tuo nome completo"
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.fullName}
                   onChange={handleInputChange}
@@ -202,14 +203,14 @@ const BeautyClinic = () => {
               <label className="flex gap-2">
                 <Mail color="#FF6803" size={25} />
                 <span className="text-[#888888] font-semibold text-lg">
-                  Email Address
+                  Indirizzo Email
                 </span>
               </label>
               <div className="relative">
                 <input
                   type="email"
                   name="email"
-                  placeholder="Enter Your Email Address"
+                  placeholder="Inserisci il tuo indirizzo email"
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.email}
                   onChange={handleInputChange}
@@ -225,14 +226,14 @@ const BeautyClinic = () => {
               <label className="flex gap-2">
                 <Phone color="#FF6803" size={25} />
                 <span className="text-[#888888] font-semibold text-lg">
-                  Contact Number
+                  Numero di Telefono
                 </span>
               </label>
               <div className="relative">
                 <input
                   type="tel"
                   name="phone"
-                  placeholder="Enter Your Contact Number"
+                  placeholder="Inserisci il tuo numero di telefono"
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.phone}
                   onChange={handleInputChange}
@@ -248,7 +249,7 @@ const BeautyClinic = () => {
               <label className="flex gap-2">
                 <Calendar color="#FF6803" size={25} />
                 <span className="text-[#888888] font-semibold text-lg">
-                  Date of Appointment
+                  Data dell'Appuntamento
                 </span>
               </label>
               <div className="relative">
@@ -270,7 +271,7 @@ const BeautyClinic = () => {
               <label className="flex gap-2">
                 <Stethoscope color="#FF6803" size={25} />
                 <span className="text-[#888888] font-semibold text-lg">
-                  Type of Appointment
+                  Tipo di Appuntamento
                 </span>
               </label>
               <div className="relative">
@@ -280,7 +281,7 @@ const BeautyClinic = () => {
                   value={bookingData.appointmentType}
                   onChange={handleInputChange}
                 >
-                  <option value="">Select Appointment Type</option>
+                  <option value="">Seleziona il tipo di appuntamento</option>
                   {appointmentTypes.map((type) => (
                     <option key={type} value={type}>
                       {type}
@@ -297,7 +298,7 @@ const BeautyClinic = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Book Now
+              Prenota Ora
               <span>
                 <CircleCheck />
               </span>

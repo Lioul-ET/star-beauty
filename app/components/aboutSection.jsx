@@ -3,7 +3,6 @@ import { Calendar, Video, Stethoscope, FileText, Syringe } from "lucide-react";
 import { motion } from "framer-motion";
 
 const AboutSection = () => {
-  /* About Section */
   return (
     <section className="md:max-w-6xl mx-auto mt-32 p-2 md:p-0">
       <motion.div
@@ -21,8 +20,10 @@ const AboutSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          <span className="text-red-500">StarBeautyWorld Albania Story:</span>
-          <span className="ml-2">Get to know us</span>
+          <span className="text-red-500">
+            La Storia di StarBeautyWorld Albania:
+          </span>
+          <span className="ml-2">Conosci il nostro team</span>
         </motion.h2>
         <div className="flex lg:flex-row flex-col gap-8 mt-7 w-[100%]">
           <motion.div
@@ -34,7 +35,7 @@ const AboutSection = () => {
           >
             <img
               src="founder.png"
-              alt="founder"
+              alt="fondatore"
               className="md:w-[70%] w-[100%]"
             />
           </motion.div>
@@ -45,19 +46,20 @@ const AboutSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <p className="text-gray-600 ">
-              At StarBeautyWorld Albania, we bring together top-tier experts in
-              dental care, plastic surgery, and aesthetic treatments to offer
-              you a seamless, luxurious experience. Our goal is to provide
-              world-class medical services with a personal touch, ensuring every
-              client feels valued and cared for.
+            <p className="text-gray-600">
+              Presso StarBeautyWorld Albania, riuniamo i migliori esperti in
+              cure dentistiche, chirurgia plastica e trattamenti estetici per
+              offrirti un'esperienza senza pari, all'insegna del lusso e della
+              professionalità. Il nostro obiettivo è fornire servizi medici di
+              livello mondiale con un tocco personalizzato, garantendo a ogni
+              cliente di sentirsi valorizzato e coccolato.
             </p>
             <motion.button
-              className="bg-red-400 text-white md:mt-8 px-6 py-3 rounded-lg hover:bg-orange-500 transition-colors"
+              className="bg-[#C97A60] text-white md:mt-8 px-6 py-3 rounded-lg"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Learn more about us
+              Scopri di più su di noi
             </motion.button>
           </motion.div>
         </div>

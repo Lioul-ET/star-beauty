@@ -24,7 +24,6 @@ export default function RootLayout({
     <html lang="it">
       <body className={`${Manrope.className} antialiased`}>
         {children}
-        <ModernTranslator />
         <Toaster />
       </body>
     </html>

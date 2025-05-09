@@ -6,16 +6,16 @@ const HowItWorks = () => {
     {
       number: 1,
       icon: Calendar,
-      title: "Book An Appointement",
+      title: "Prenota un Appuntamento",
       description:
-        "Select from our range of services and book a consultation. Booking a consultation with us is fairly simple and straight forward.",
+        "Scegli tra la nostra gamma di servizi e prenota una consulenza. La prenotazione è semplice e intuitiva.",
     },
     {
       number: 2,
       icon: Clock,
-      title: "Wait for Schedule",
+      title: "Attendi la Programmazione",
       description:
-        "Have a virtual consultation with one of our certified specialists, or go for a physical visit to the doctor in case you opted for a physical check-up.",
+        "Effettua una consulenza virtuale con uno dei nostri specialisti certificati, oppure recati fisicamente dal medico se hai optato per una visita in presenza.",
     },
   ];
 
@@ -24,12 +24,13 @@ const HowItWorks = () => {
       {/* Header Section */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">
-          How <span className="text-red-500">our platform</span> works
+          Come funziona{" "}
+          <span className="text-red-500">la nostra piattaforma</span>
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto mt-6">
-          Navigating your healthcare journey with us is seamless. Just follow
-          these steps mentioned below to proceed with your selected services.
-          You can also see our FAQ section for more guidance.
+          Gestire il tuo percorso di cura con noi è semplice. Segui questi
+          passaggi per usufruire dei servizi selezionati. Consulta anche la
+          sezione FAQ per ulteriore supporto.
         </p>
       </div>
 
@@ -59,19 +60,14 @@ const HowItWorks = () => {
         <div className="lg:w-1/2 w-[100%] relative">
           <div className="relative">
             {/* Main Image Container */}
-            <div className=" rounded-2xl p-6 relative ">
-              <div className="aspect-square bg-white rounded-2xl overflow-hidden relative ">
-                {/* Placeholder for doctor image */}
-                <img
-                  src="Doctor.png"
-                  alt="Doctor-img"
-                  className="z-20 w-[70%]"
-                />
-                <div className="bg-gradient-to-r from-[#fab2b2] via-[#f7eae4] to-transparent w-[90%] md:h-72 h-56  rounded-2xl md:-mt-72 -mt-56 border-[2px] border-[#d15753] z-0"></div>
+            <div className="rounded-2xl p-6 relative">
+              <div className="aspect-square bg-white rounded-2xl overflow-hidden relative">
+                <img src="Doctor.png" alt="Medico" className="z-20 w-[70%]" />
+                <div className="bg-gradient-to-r from-[#fab2b2] via-[#f7eae4] to-transparent w-[90%] md:h-72 h-56 rounded-2xl md:-mt-72 -mt-56 border-[2px] border-[#d15753] z-0"></div>
                 <img
                   src="cross.png"
-                  alt="cross-img"
-                  className="h-32 w-20 md:-mt-[22rem] -mt-[40rem] ml-96 "
+                  alt="Croce-medica"
+                  className="h-32 w-20 md:-mt-[22rem] -mt-[40rem] ml-96"
                 />
               </div>
             </div>
@@ -83,7 +79,7 @@ const HowItWorks = () => {
                   <Star />
                 </span>
                 <span className="text-sm font-semibold">
-                  Best Certified Team of Specialists
+                  Team di specialisti meglio certificati
                 </span>
               </div>
             </div>

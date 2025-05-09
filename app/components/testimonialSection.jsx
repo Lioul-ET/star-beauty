@@ -1,12 +1,11 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { img } from "framer-motion/client";
 
 const TestimonialCard = ({ quote, author, image }) => (
   <div className="bg-gradient-to-r from-[#fad7d7] via-[#f8f5f3] to-transparent rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-[2px] border-[#f5928b]">
     <div className="flex gap-4 items-start">
       <div className="w-12 h-12 rounded-ful flex-shrink-0">
-        <img src={image} />
+        <img src={image} alt="Foto paziente" />
       </div>
       <div>
         <p className="text-gray-700 mb-2">{quote}</p>
@@ -33,25 +32,25 @@ const Testimonials = () => {
   const testimonials = [
     {
       quote:
-        "After my knee surgery, the convenience of online consultations made my recovery smoother than I could have imagined.",
+        "Dopo l'intervento al ginocchio, la comodità delle consultazioni online ha reso il recupero più semplice del previsto.",
       author: "Linda A.",
       img: "1.png",
     },
     {
       quote:
-        "Managing chronic conditions like diabetes requires a lot of vigilance, but the medicine refill system has simplified my life.",
+        "Gestire condizioni croniche come il diabete richiede molta attenzione, ma il sistema di ricarica dei farmaci ha semplificato la mia vita.",
       author: "Henry B.",
       img: "2.png",
     },
     {
       quote:
-        "The prescription refill system is a game-changer for managing my diabetes. It's really efficient and completely hassle-free.",
+        "Il sistema di rinnovo prescrizioni ha rivoluzionato la gestione del mio diabete. È efficiente e completamente senza problemi.",
       author: "Joshua T.",
       img: "3.png",
     },
     {
       quote:
-        "Finding a doctor who really understands all of my health needs has never been easier. This platform has changed my life.",
+        "Trovare un medico che comprenda veramente tutte le mie esigenze di salute non è mai stato così facile. Questa piattaforma ha cambiato la mia vita.",
       author: "Samantha K.",
       img: "4.png",
     },
@@ -59,20 +58,20 @@ const Testimonials = () => {
 
   const statistics = [
     {
-      value: "10,000+",
-      label: "Successful Consultations",
+      value: "10.000+",
+      label: "Consultazioni completate",
     },
     {
-      value: "2,500+",
-      label: "Booking",
+      value: "2.500+",
+      label: "Prenotazioni",
     },
     {
       value: "98%",
-      label: "Patient Satisfaction Rate",
+      label: "Tasso di soddisfazione",
     },
     {
       value: "200+",
-      label: "Top Specialists",
+      label: "Specialisti qualificati",
     },
   ];
 
@@ -97,15 +96,13 @@ const Testimonials = () => {
 
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-red-500 text-4xl mb-2 font-bold">
-          Patient Testimonials:
-        </h2>
+        <h2 className="text-red-500 text-4xl mb-2 font-bold">Testimonianze:</h2>
         <h3 className="text-3xl font-bold mb-4">
-          Hear from Those We've Cared For
+          Ascolta chi si è affidato a noi
         </h3>
         <p className="text-gray-600">
-          Discover the difference we make through the voices of those we've
-          served:
+          Scopri la differenza che facciamo attraverso le voci di chi abbiamo
+          assistito:
         </p>
       </div>
 
