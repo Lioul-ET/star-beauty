@@ -24,7 +24,7 @@ const HowItWorks = () => {
       {/* Header Section */}
       <div className="text-center mb-12">
         <h2 className="text-4xl font-bold mb-4">
-          How <span className="text-orange-400">our platform</span> works
+          How <span className="text-red-500">our platform</span> works
         </h2>
         <p className="text-gray-600 max-w-2xl mx-auto mt-6">
           Navigating your healthcare journey with us is seamless. Just follow
@@ -40,8 +40,8 @@ const HowItWorks = () => {
           {steps.map((step, index) => (
             <div key={index} className="flex items-start gap-4">
               {/* Step Number */}
-              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-orange-100 flex items-center justify-center">
-                <span className="text-orange-400 font-semibold">
+              <div className="flex-shrink-0 w-10 h-10 rounded-full bg-red-100 flex items-center justify-center">
+                <span className="text-red-400 font-semibold">
                   {step.number}
                 </span>
               </div>
@@ -67,7 +67,7 @@ const HowItWorks = () => {
                   alt="Doctor-img"
                   className="z-20 w-[70%]"
                 />
-                <div className="bg-gradient-to-r from-[#eed2c6] via-[#f7eae4] to-transparent w-[90%] md:h-72 h-56  rounded-2xl md:-mt-72 -mt-56 border-[2px] border-[#C58F72] z-0"></div>
+                <div className="bg-gradient-to-r from-[#fab2b2] via-[#f7eae4] to-transparent w-[90%] md:h-72 h-56  rounded-2xl md:-mt-72 -mt-56 border-[2px] border-[#d15753] z-0"></div>
                 <img
                   src="cross.png"
                   alt="cross-img"
@@ -78,8 +78,8 @@ const HowItWorks = () => {
 
             {/* Badge */}
             <div className="absolute md:bottom-32 bottom-24 left-1/2 transform -translate-x-1/2 bg-white px-6 py-2 rounded-xl shadow-lg">
-              <div className="flex items-center gap-2 text-[#C58F72]">
-                <span className="text-orange-400">
+              <div className="flex items-center gap-2 text-[#c46255]">
+                <span className="text-red-400">
                   <Star />
                 </span>
                 <span className="text-sm font-semibold">

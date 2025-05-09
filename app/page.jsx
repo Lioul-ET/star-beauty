@@ -16,6 +16,7 @@ import HowItWorks from "@/app/components/howItWorksSection";
 import TestimonialCard from "@/app/components/testimonialSection";
 import LastSection from "@/app/components/lastSection";
 import AboutSection from "@/app/components/aboutSection";
+import { toast } from "sonner";
 
 const staggerContainer = {
   hidden: {},
@@ -32,6 +33,9 @@ const fadeInUp = {
 };
 
 const BeautyClinic = () => {
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const [bookingData, setBookingData] = useState({
     fullName: "",
     email: "",
@@ -55,9 +59,42 @@ const BeautyClinic = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Handle form submission
+    setLoading(true);
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bookingData,
+          subject: "New Appointment Request",
+        }),
+      });
+
+      const data = await response.json();
+      console.log(response);
+      if (response.ok) {
+        console.log("Sent");
+        setStatus("Email sent successfully!");
+        toast("Appointment has been created", {
+          description: "Please wait for an email",
+        });
+      } else {
+        toast("Something went wrong!", {
+          description: "Please try again",
+          variant: "destructive",
+        });
+        throw new Error(data.error || "Failed to send email");
+      }
+    } catch (error) {
+      setStatus("Failed to send email");
+    } finally {
+      setLoading(false);
+    }
   };
 
   // Animation variants
@@ -97,12 +134,10 @@ const BeautyClinic = () => {
         <HeroSection />
       </motion.div>
 
-      <div id="book" className="-mt-3"></div>
-
       <div>
         <div className="flex items-center justify-center gap-2 mb-6 mt-14">
           <h1 className="text-4xl font-bold text-center">
-            Book <span className="text-orange-400">Your Appointment</span> Here
+            Book <span className="text-red-500">Your Appointment</span> Here
           </h1>
         </div>
 
@@ -120,7 +155,7 @@ const BeautyClinic = () => {
         </motion.p>
 
         <motion.div
-          className="md:max-w-[70%] w-[90%] mx-auto p-8 bg-gradient-to-r from-[#eed2c6] via-[#f7eae4] to-[#ffffff] rounded-3xl mt-16 border-[1px] border-orange-300"
+          className="md:max-w-[70%] w-[90%] mx-auto p-8 bg-gradient-to-r from-[#f3c2c2] via-[#f7eae4] to-[#ffffff] rounded-3xl mt-16 border-[1px] border-red-600"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
@@ -155,6 +190,7 @@ const BeautyClinic = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.fullName}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
             </motion.div>
@@ -177,6 +213,7 @@ const BeautyClinic = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.email}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
             </motion.div>
@@ -199,6 +236,7 @@ const BeautyClinic = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.phone}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
             </motion.div>
@@ -220,6 +258,7 @@ const BeautyClinic = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg bg-[#fff] text-[#FF6803] font-semibold"
                   value={bookingData.date}
                   onChange={handleInputChange}
+                  required
                 />
               </div>
             </motion.div>

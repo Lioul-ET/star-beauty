@@ -128,3 +128,25 @@
 .filter-orange {
   filter: sepia(1) saturate(5) hue-rotate(-20deg);
 }
+
+/* Hide the Google Translate top banner */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+/* Hide the body margin that gets added */
+body {
+  top: 0px !important;
+}
+
+/* Prevent page from shifting */
+.goog-te-gadget-icon {
+  display: none !important;
+}
+/* Hide the Google Translate top bar */
+.goog-te-banner-frame {
+  display: none !important;
+}
+body {
+  top: 0 !important;
+}

@@ -10,7 +10,7 @@ const ServiceCard = ({ img, title, description, index }) => (
     transition={{ duration: 0.5, delay: index * 0.1 }}
     viewport={{ once: true, margin: "-50px" }}
     whileHover={{ scale: 1.02 }}
-    className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border-[1px] border-orange-400"
+    className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow border-[1px] border-red-400"
   >
     <motion.div className="mb-4" transition={{ duration: 0.5 }}>
       <img
@@ -33,7 +33,7 @@ const ServicesSection = () => {
         "Consult with top doctors across various specialties via video or chat communication. Choose the best time for an in-person visit with our easy-to-use scheduling system.",
     },
     {
-      img: "plastic.png",
+      img: "pl.png",
       title: "Plastic Surgery",
       description:
         "Receive and renew prescriptions digitally after your consultation with our specialists.",
@@ -45,7 +45,7 @@ const ServicesSection = () => {
         "Skip the pharmacy queues and save time + energy by ordering medicine refills online.",
     },
     {
-      img: "hair-trnasplant.png",
+      img: "hT.png",
       title: "Hair Restoration",
       description:
         "Obtain necessary medical notes for work or school with only a few clicks of hassle.",
@@ -70,7 +70,7 @@ const ServicesSection = () => {
       >
         <div className="flex items-center gap-2 mb-6 mt-14">
           <h1 className="text-4xl font-bold">
-            Top <span className="text-orange-400">services</span> we offer
+            Top <span className="text-red-500">services</span> we offer
           </h1>
         </div>
         <motion.p

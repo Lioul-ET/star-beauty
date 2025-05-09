@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
-
 import "./globals.css";
 import localFont from "next/font/local";
+import { Toaster } from "@/components/ui/sonner";
+import ModernTranslator from "@/app/components/modernTranslator";
 
 const Manrope = localFont({
   src: "./fonts/Manrope-VariableFont_wght.ttf",
@@ -20,8 +21,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${Manrope.className} antialiased`}>{children}</body>
+    <html lang="it">
+      <body className={`${Manrope.className} antialiased`}>
+        {children}
+        <ModernTranslator />
+        <Toaster />
+      </body>
     </html>
   );
 }

@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Phone,
   Mail,
@@ -8,14 +9,68 @@ import {
   Youtube,
   CircleArrowRight,
 } from "lucide-react";
+import { toast } from "sonner";
 
 const LastSection = () => {
+  const [status, setStatus] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const formData = new FormData(e.target);
+    const firstName = formData.get("firstName");
+    const email = formData.get("email");
+
+    console.log("Form submitted:", { firstName, email });
+
+    const bookingData = {
+      firstName: firstName,
+      email: email,
+    };
+
+    try {
+      const response = await fetch("../api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bookingData,
+          subject: "Contact Form Submission",
+        }),
+      });
+
+      const data = await response.json();
+      console.log(response);
+      if (response.ok) {
+        console.log("Sent");
+        setStatus("Email sent successfully!");
+        toast("Help is on the way", {
+          description: "Please wait for an email",
+        });
+      } else {
+        toast("Something went wrong!", {
+          description: "Please try again",
+          variant: "destructive",
+        });
+        throw new Error(data.error || "Failed to send email");
+      }
+    } catch (error) {
+      setStatus("Failed to send email");
+    } finally {
+      console.log("Loading");
+      setLoading(false);
+    }
+    // Here you can add further logic such as sending data to an API
+  };
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
       <main className="max-w-6xl mx-auto px-4 py-8">
         <h1 className="text-3xl font-semibold text-center">
-          <span className="text-[#C58F72] text-5xl">Masters of Medicine:</span>
+          <span className="text-[#c22f29] text-5xl">Masters of Medicine:</span>
         </h1>
         <h1 className="text-5xl font-semibold text-center mt-4">
           <span className="text-gray-800">Meet our team of specialists</span>
@@ -28,7 +83,7 @@ const LastSection = () => {
         </p>
 
         {/* Doctor Card */}
-        <div className="mt-12 bg-[#C58F72] rounded-2xl  flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
+        <div className="mt-12 bg-[#c06464] rounded-2xl  flex flex-col md:flex-row items-center gap-6 max-w-4xl mx-auto">
           <div className="md:h-48 rounded-full flex items-center justify-center md:w-[30%] w-[100%]">
             <img
               src="male-doctor.png"
@@ -57,7 +112,7 @@ const LastSection = () => {
         {/* Help Desk Section */}
         <section id="contact" className="mt-20">
           <h2 className="text-center text-3xl font-bold">
-            Reach our <span className="text-[#C58F72] ">Help Desk</span> for
+            Reach our <span className="text-[#bd3535]">Help Desk</span> for
             support
           </h2>
           <p className="text-center text-[#757474] mt-4">
@@ -65,24 +120,34 @@ const LastSection = () => {
             help you every step of the way.
           </p>
 
-          <div className="mt-8 max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="mt-8 max-w-2xl mx-auto flex flex-col md:flex-row gap-4"
+          >
             <input
               type="text"
+              name="firstName"
               placeholder="Enter Your First Name"
               className="flex-1 px-4 py-4 border-[2px] rounded-lg border-[#C58F72]"
+              required
             />
             <input
               type="email"
+              name="email"
               placeholder="Enter Your Email Address"
               className="flex-1 px-4 py-4 border-[2px] rounded-lg border-[#C58F72]"
+              required
             />
-            <button className="bg-[#C58F72] text-white px-6 py-2 rounded-lg flex items-center font-bold gap-2">
+            <button
+              type="submit"
+              className="bg-[#c46666] text-white px-6 py-2 rounded-lg flex items-center font-bold gap-2"
+            >
               Contact us
               <span>
                 <CircleArrowRight />
               </span>
             </button>
-          </div>
+          </form>
         </section>
       </main>
 
@@ -92,7 +157,7 @@ const LastSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center">
-                <img src="icon2.png" alt="Star Beauty" className="h-20" />
+                <img src="icon3.png" alt="Star Beauty" className="h-20" />
               </div>
               <p className="text-gray-600">
                 Experience personalized medical care from the comfort of your

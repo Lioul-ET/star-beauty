@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { img } from "framer-motion/client";
 
 const TestimonialCard = ({ quote, author, image }) => (
-  <div className="bg-gradient-to-r from-[#fffaf8] via-[#f8f5f3] to-transparent rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-[2px] border-[#f1bfa8]">
+  <div className="bg-gradient-to-r from-[#fad7d7] via-[#f8f5f3] to-transparent rounded-2xl p-6 shadow-sm hover:shadow-md transition-all border-[2px] border-[#f5928b]">
     <div className="flex gap-4 items-start">
       <div className="w-12 h-12 rounded-ful flex-shrink-0">
         <img src={image} />
@@ -24,7 +24,7 @@ const Statistic = ({ value, label }) => (
     className="text-center"
     id="testimonials"
   >
-    <div className="text-4xl font-bold text-orange-400 mb-2">{value}</div>
+    <div className="text-4xl font-bold text-red-500 mb-2">{value}</div>
     <div className="text-gray-600 text-sm">{label}</div>
   </motion.div>
 );
@@ -82,7 +82,7 @@ const Testimonials = () => {
       <div className="absolute right-0 top-1/2 opacity-20">
         <div className="grid grid-cols-4 gap-1">
           {[...Array(16)].map((_, i) => (
-            <div key={i} className="w-1 h-1 rounded-full bg-orange-200" />
+            <div key={i} className="w-1 h-1 rounded-full bg-red-200" />
           ))}
         </div>
       </div>
@@ -90,14 +90,14 @@ const Testimonials = () => {
       <div className="absolute left-0 bottom-0 opacity-20">
         <div className="grid grid-cols-4 gap-1">
           {[...Array(16)].map((_, i) => (
-            <div key={i} className="w-1 h-1 rounded-full bg-orange-200" />
+            <div key={i} className="w-1 h-1 rounded-full bg-red-200" />
           ))}
         </div>
       </div>
 
       {/* Header */}
       <div className="text-center mb-12">
-        <h2 className="text-orange-400 text-4xl mb-2 font-bold">
+        <h2 className="text-red-500 text-4xl mb-2 font-bold">
           Patient Testimonials:
         </h2>
         <h3 className="text-3xl font-bold mb-4">
