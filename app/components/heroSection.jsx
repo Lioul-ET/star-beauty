@@ -24,12 +24,12 @@ const scrollToSection = (sectionId) => {
 
 const HeroSection = () => {
   return (
-    <section id="home" className="mt-24 relative">
+    <section id="home" className="mt-24 relative min-w-full">
       <div className="absolute top-72 z-10">
         <img src="background-line.png" alt="Star Beauty" className="w-[100%]" />
       </div>
       <div className="container mx-auto px-6 py-12 flex flex-wrap items-center mt-24 relative z-10">
-        <div className="w-full md:w-1/2">
+        <div className="w-full  block overflow-hidden break-words   md:w-1/2">
           <h1
             className={`text-4xl md:text-5xl font-bold mb-6 ${CinzelDecorative.className}`}
           >
@@ -49,13 +49,9 @@ const HeroSection = () => {
             <span className="text-[#d62c16] font-semibold">
               livello mondiale
             </span>{" "}
-            in odontoiatria, chirurgia plastica, restauro capillare e
-            trattamenti laser—tutto in un'unica sede conveniente. Fidati dei
-            nostri clienti internazionali da{" "}
-            <span className="font-semibold">Italia 🇮🇹</span>,
-            <span className="ml-1 font-semibold">Albania 🇦🇱</span>, e Germania.
-            <span className="text-[#d62c16] font-bold ml-1">Inizia ora</span> o
-            prenota il tuo appuntamento oggi.
+            in odontoiatria, chirurgia plastica e trattamenti laser per gli
+            occhi - tutto in un’ unica sede! I nostri dottori sono Italiani e
+            non solo! prenota ora la tua consulenza gratuita
           </p>
 
           <button

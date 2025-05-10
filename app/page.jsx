@@ -150,9 +150,9 @@ const BeautyClinic = () => {
           transition={{ delay: 0.3, duration: 0.6 }}
         >
           Il tuo benessere è importante — e fare il primo passo verso una salute
-          migliore non è mai stato così semplice. Che tu abbia bisogno di un
-          controllo di routine o di un trattamento di benessere, il nostro team
-          è qui per aiutarti a sentirti al meglio.
+          migliore non è mai stato così semplice.Che tu abbia bisogno di cure
+          dentali o faccette chirurgia estetica trattamenti laser il nostro team
+          è qui per aiutarti a sentirti al meglio..
         </motion.p>
 
         <motion.div

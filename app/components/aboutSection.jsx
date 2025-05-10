@@ -23,7 +23,9 @@ const AboutSection = () => {
           <span className="text-red-500">
             La Storia di StarBeautyWorld Albania:
           </span>
-          <span className="ml-2">Conosci il nostro team</span>
+          <span className="ml-2">
+            Risparmia fino al 70% nelle nostre cliniche
+          </span>
         </motion.h2>
         <div className="flex lg:flex-row flex-col gap-8 mt-7 w-[100%]">
           <motion.div
@@ -59,7 +61,7 @@ const AboutSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Scopri di più su di noi
+              Smandaci una email per avere maggiori info
             </motion.button>
           </motion.div>
         </div>

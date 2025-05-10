@@ -30,25 +30,25 @@ const ServicesSection = () => {
       img: "dental.png",
       title: "Trattamento Dentale",
       description:
-        "Consulta i migliori medici di varie specialità via video o chat. Scegli il momento migliore per una visita in persona con il nostro sistema di prenotazione intuitivo.",
+        "Consulenza gratuita risparmi fino al 70% nelle tue cure dentali, Igiene dentale professionale (pulizia), Sbiancamento dentale, Otturazioni (cura carie), Devitalizzazioni (trattamenti canalari), Corone e ponti dentali, Faccette estetiche in ceramica o composito, Protesi mobili e fisse, Impianti dentali, Estrazioni dentarie (anche denti del giudizio), Ortodonzia (apparecchi fissi, mobili e trasparenti), Chirurgia orale, Parodontologia (cura delle gengive), Trattamento dell’alitosi, Terapia per bruxismo (bite notturno), Allineatori invisibili (tipo Invisalign)",
     },
     {
       img: "pl.png",
       title: "Chirurgia Plastica",
       description:
-        "Ricevi e rinnova le prescrizioni digitalmente dopo la consultazione con i nostri specialisti.",
+        "Rinoplastica (chirurgia del naso), Blefaroplastica (chirurgia delle palpebre), Lifting del viso e del collo, Otoplastica (correzione delle orecchie a sventola), Mastoplastica additiva (aumento del seno), Mastoplastica riduttiva (riduzione del seno), Mastopessi (lifting del seno), Addominoplastica (chirurgia dell’addome), Liposuzione, Liposculpture (liposcultura), Gluteoplastica (aumento dei glutei), Trapianto di capelli, Ginecomastia (riduzione del seno maschile), Chirurgia intima femminile e maschile, Lifting delle braccia o delle cosce, Chirurgia ricostruttiva post-trauma o post-tumore, Rimozione di nei, cisti o lipomi, Chirurgia delle cicatrici",
     },
     {
       img: "laser-treatment.png",
       title: "Trattamenti Laser",
       description:
-        "Evita le code in farmacia e risparmia tempo ed energie ordinando i tuoi farmaci online.",
+        "LASIK – Correzione della miopia, ipermetropia e astigmatismo, PRK (Cheratectomia Fotorefrattiva) – Alternativa al LASIK per chi ha cornee sottili, SMILE – Tecnica minimamente invasiva per la miopia, LASEK – Variante della PRK, meno dolorosa nel post-operatorio, Trattamento della presbiopia con laser, Capsulotomia YAG laser – Per opacizzazione secondaria della capsula dopo cataratta, Iridotomia laser – Per il glaucoma ad angolo chiuso, Trabeculoplastica laser – Per ridurre la pressione intraoculare nel glaucoma, Fotocoagulazione retinica laser – Per retinopatia diabetica o rotture retiniche, Laser per il trattamento della degenerazione maculare (in alcuni casi)",
     },
     {
       img: "hT.png",
-      title: "Restauro Capillare",
+      title: "Trapianto capelli",
       description:
-        "Ottieni i certificati medici necessari per lavoro o scuola con pochi semplici clic.",
+        "Trapianto FUE (Follicular Unit Extraction) – Tecnica più moderna e meno invasiva, Trapianto FUT (Strip) – Tecnica tradizionale con prelievo a striscia, Trapianto capelli per uomo, Trapianto capelli per donna, Trapianto barba, Trapianto sopracciglia, Trapianto baffi, Correzione di vecchi trapianti mal riusciti, Trapianto con tecnica DHI (Direct Hair Implantation), Micropigmentazione del cuoio capelluto (effetto rasato), Trattamenti PRP (Plasma Ricco di Piastrine) per rinforzare i capelli trapiantati, Trapianto in zone cicatriziali o post-trauma, Trapianto capelli afro o ricci, Analisi del capello e mappatura del cuoio capelluto, Consulenza pre e post intervento con follow-up personalizzato",
     },
     {
       img: "appointment.png",
