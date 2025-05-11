@@ -87,7 +87,7 @@ const Navbar = () => {
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between">
         <div className="flex items-center">
-          <img src="icon3.png" alt="Star Beauty" className="h-20" />
+          <img src="logo-starbg.png" alt="Star Beauty" className="h-20" />
         </div>
 
         <div className="hidden md:flex space-x-6 font-bold">
