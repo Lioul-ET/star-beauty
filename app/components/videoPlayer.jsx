@@ -20,14 +20,78 @@ const formatTime = (time) => {
     .padStart(2, "0")}`;
 };
 
+// Helper function to generate optimized Cloudinary URLs
+const getMediaUrls = (originalUrl) => {
+  if (!originalUrl.includes("res.cloudinary.com"))
+    return {
+      original: originalUrl,
+      gif: originalUrl,
+      webm: originalUrl,
+      mp4: originalUrl,
+    };
+
+  // Extract the public ID and extension from the URL
+  const parts = originalUrl.split("/upload/");
+  const uploadPart = parts[0] + "/upload/";
+  const rest = parts[1];
+
+  // Generate GIF placeholder (very low quality, very short loop, small size)
+  const gifUrl = `${uploadPart}f_gif,du_0.5,eo_0.5,q_10,w_160/${rest.replace(
+    /\.[^/.]+$/,
+    ".gif"
+  )}`;
+
+  // Generate optimized video formats
+  const webmUrl = `${uploadPart}f_webm,q_auto/${rest.replace(
+    /\.[^/.]+$/,
+    ".webm"
+  )}`;
+  const mp4Url = `${uploadPart}f_mp4,q_auto/${rest.replace(
+    /\.[^/.]+$/,
+    ".mp4"
+  )}`;
+
+  return {
+    original: originalUrl,
+    gif: gifUrl,
+    webm: webmUrl,
+    mp4: mp4Url,
+  };
+};
+
+// Add a simple spinner component
+const Spinner = () => (
+  <div className="absolute inset-0 flex items-center justify-center bg-black/60 z-20">
+    <svg className="animate-spin h-12 w-12 text-white" viewBox="0 0 24 24">
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+        fill="none"
+      />
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+      />
+    </svg>
+  </div>
+);
+
 const VideoCarousel = () => {
-  const videos = [
+  const originalVideos = [
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125036/Consulenza_Albania_surben.mov",
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125114/IMG_15370_oriwvk.mp4",
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125193/IMG_1536_ogvyvi.mp4",
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125027/IMG_15340_p9wmzc.mp4",
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747121874/Segreto_del_sorriso_yurpq2.mov",
   ];
+
+  // Pre-process videos to get optimized URLs
+  const videos = originalVideos.map((url) => getMediaUrls(url));
 
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
@@ -36,6 +100,7 @@ const VideoCarousel = () => {
   const [isMuted, setIsMuted] = useState(true);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
+  const [loadedVideos, setLoadedVideos] = useState({});
 
   useEffect(() => {
     const checkMobile = () => {
@@ -86,11 +151,16 @@ const VideoCarousel = () => {
     setIsPlaying(true);
   };
 
+  const handleVideoLoad = (index) => {
+    setLoadedVideos((prev) => ({ ...prev, [index]: true }));
+  };
+
   const CustomVideoPlayer = ({ url }) => {
     const videoRef = React.useRef(null);
     const containerRef = React.useRef(null);
     const [currentTime, setCurrentTime] = useState(0);
     const [duration, setDuration] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
       const video = videoRef.current;
@@ -199,15 +269,23 @@ const VideoCarousel = () => {
 
     return (
       <div ref={containerRef} className="relative">
+        {loading && <Spinner />}
         <video
           ref={videoRef}
-          src={url}
           className="w-full max-h-[80vh] rounded-lg"
           autoPlay
           loop
           muted={isMuted}
           playsInline
-        />
+          onCanPlayThrough={() => setLoading(false)}
+        >
+          {/* WebM format (better compression) */}
+          <source src={url.webm} type="video/webm" />
+          {/* MP4 fallback for Safari */}
+          <source src={url.mp4} type="video/mp4" />
+          {/* Fallback text */}
+          Your browser does not support the video tag.
+        </video>
         <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
           <div
             className="w-full h-1 bg-gray-600 rounded-full mb-4 cursor-pointer"
@@ -285,13 +363,12 @@ const VideoCarousel = () => {
               }`}
               onClick={() => handleVideoClick(url)}
             >
-              <video
-                src={url}
+              {/* Show GIF placeholder only */}
+              <img
+                src={url.gif}
                 className="w-full aspect-[9/16] object-cover rounded-lg shadow-lg"
-                loop
-                muted
-                autoPlay
-                playsInline
+                alt="Video preview"
+                loading="lazy"
               />
               <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                 <PlayCircle className="w-16 h-16 text-white" />
