@@ -22,11 +22,11 @@ const formatTime = (time) => {
 
 const VideoCarousel = () => {
   const videos = [
-    "/videos/IMG_15370.MP4",
-    "/videos/IMG_15340.MP4",
-    "/videos/IMG_1536.MP4",
-    "/videos/Segreto del sorriso.mov",
-    "/videos/Consulenza Albania.mov",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125036/Consulenza_Albania_surben.mov",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125114/IMG_15370_oriwvk.mp4",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125193/IMG_1536_ogvyvi.mp4",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125027/IMG_15340_p9wmzc.mp4",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747121874/Segreto_del_sorriso_yurpq2.mov",
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
