@@ -22,8 +22,8 @@ const formatTime = (time) => {
 
 const VideoCarousel = () => {
   const videos = [
-    "/videos/IMG_1537.MP4",
-    "/videos/IMG_1534.MP4",
+    "/videos/IMG_15370.MP4",
+    "/videos/IMG_15340.MP4",
     "/videos/IMG_1536.MP4",
     "/videos/Segreto del sorriso.mov",
     "/videos/Consulenza Albania.mov",
