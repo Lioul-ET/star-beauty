@@ -17,6 +17,7 @@ import TestimonialCard from "@/app/components/testimonialSection";
 import LastSection from "@/app/components/lastSection";
 import AboutSection from "@/app/components/aboutSection";
 import { toast } from "sonner";
+import VideoSlider from "@/app/components/videoPlayer";
 
 const staggerContainer = {
   hidden: {},
@@ -45,11 +46,11 @@ const BeautyClinic = () => {
   });
 
   const appointmentTypes = [
-    "Dental Treatment",
-    "Plastic and aesthetic surgery",
-    "Hair transplant",
-    "Laser eye treatment",
-    "Health surgeries",
+    "Dtrattamento dentale",
+    "Chirurgia plastica ed estetica",
+    "Trapianto di capelli",
+    "Trattamento laser per gli occhi",
+    "Interventi sanitari",
   ];
 
   const handleInputChange = (e) => {
@@ -316,8 +317,12 @@ const BeautyClinic = () => {
         <ServicesSection />
       </motion.div>
 
-      {/*About Section */}
       <section id="about" className=""></section>
+      {/* Video */}
+      <VideoSlider />
+
+      {/*About Section */}
+
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
