@@ -152,12 +152,26 @@ body {
 }
 /* RESEND_API_KEY = "re_dZuzGbPa_CASNjRo88N3yd2jM5s6Yqou1" */
 .bg-img {
-  background-image: url("/bg-4.jpeg"); /* Replace with your actual path */
+  position: relative;
+  z-index: 1;
+  /* Ensure content inside is positioned properly */
+}
+
+.bg-img::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("/bg-4.jpeg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
+  opacity: 0.5; /* Adjust this value to control image opacity */
+  z-index: -1; /* Send it behind the content */
 }
-.bg-img::before {
+/* .bg-img::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -167,4 +181,4 @@ body {
   background-repeat: no-repeat;
   filter: blur(4px);
   z-index: -1;
-}
+} */
