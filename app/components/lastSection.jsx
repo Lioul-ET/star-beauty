@@ -111,7 +111,7 @@ const LastSection = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <div className="flex items-center">
-                <img src="icon3.png" alt="Star Beauty" className="h-20" />
+                <img src="logo-starbg.png" alt="Star Beauty" className="h-20" />
               </div>
               <p className="text-gray-600">
                 Cura medica personalizzata direttamente da casa tua.

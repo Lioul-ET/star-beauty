@@ -1,5 +1,7 @@
-import React, { useState } from "react";
-import { Calendar, ChevronRight, Mail, Phone, Star } from "lucide-react";
+"use client";
+
+import React, { useEffect, useRef, useState } from "react";
+import { ChevronRight, Star } from "lucide-react";
 import localFont from "next/font/local";
 
 const CinzelDecorative = localFont({
@@ -23,39 +25,65 @@ const scrollToSection = (sectionId) => {
 };
 
 const HeroSection = () => {
+  const sectionRef = useRef(null);
+  const [inView, setInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setInView(entry.isIntersecting);
+      },
+      {
+        threshold: 0.4,
+      }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
-    <section id="home" className="mt-24 relative min-w-full">
+    <section
+      ref={sectionRef}
+      id="home"
+      className={`min-w-full bg-img py-20 transition-all duration-1000 h-auto ease-in-out ${
+        inView ? "opacity-100 scale-100" : "opacity-0 scale-95"
+      }`}
+    >
+      {/* Decorative Line */}
       <div className="absolute top-72 z-10">
-        <img src="background-line.png" alt="Star Beauty" className="w-[100%]" />
+        <img src="background-line.png" alt="Star Beauty" className="w-full" />
       </div>
-      <div className="container mx-auto px-6 py-12 flex flex-wrap items-center mt-24 relative z-10">
-        <div className="w-full  block overflow-hidden break-words   md:w-1/2">
-          <h1
-            className={`text-4xl md:text-5xl font-bold mb-6 ${CinzelDecorative.className}`}
-          >
+
+      <div className="container mx-auto px-6 py-12 flex flex-wrap items-center md:mt-20  relative z-10">
+        {/* Text Content */}
+        <div className="w-full md:w-1/2 block overflow-hidden break-words">
+          <h1 className={`text-4xl md:text-5xl font-bold mb-6`}>
             <span>Un Approccio</span>
             <span className="text-[#d62c16] ml-5">Moderno</span>
             <span className="block mt-4 text-[#d62c16]">
-              alla Bellezza,{" "}
-              <span className="ml-5 text-foreground">Salute</span>
+              alla Bellezza, <span className="ml-5 text-white">Salute</span>
             </span>
             <span className="block mt-4 text-[#d62c16]">
-              & Cura di Sé<span className="ml-5">🇮🇹 🇦🇱</span>
+              & Cura di Sé <span className="ml-5">🇮🇹 🇦🇱</span>
             </span>
           </h1>
 
-          <p className="mb-8 text-gray-600">
+          <p className="mb-8 md:text-white text-black">
             Scopri cure di{" "}
             <span className="text-[#d62c16] font-semibold">
               livello mondiale
             </span>{" "}
             in odontoiatria, chirurgia plastica e trattamenti laser per gli
             occhi - tutto in un’ unica sede! I nostri dottori sono Italiani e
-            non solo! prenota ora la tua consulenza gratuita
+            non solo! Prenota ora la tua consulenza gratuita.
           </p>
 
           <button
-            className="bg-[#C97A60] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold items-center space-x-2"
+            className="bg-[#C97A60] text-white px-8 py-3 rounded-lg hover:bg-[#B56B51] shadow-2xl shadow-[#858080] flex font-bold items-center space-x-2 z-50"
             onClick={() => scrollToSection("book")}
           >
             <span>Prenota un Appuntamento</span>
@@ -63,17 +91,19 @@ const HeroSection = () => {
           </button>
         </div>
 
+        {/* Image Section */}
         <div className="w-full md:w-1/2 relative mt-12 md:mt-0">
           <div className="w-full max-w-lg mx-auto aspect-square relative">
             <div className="w-full h-full flex justify-center items-center">
               <img
                 src="hero-img2.png"
                 alt="Immagine principale"
-                className="w-[100%] -mt-9"
+                className="w-full -mt-9"
               />
             </div>
           </div>
 
+          {/* Floating Ratings Card */}
           <div className="absolute top-48 right-1 bg-white p-4 rounded-lg shadow-lg z-20">
             <div className="flex flex-col gap-2">
               <div className="flex gap-2">
@@ -82,7 +112,7 @@ const HeroSection = () => {
                     <div key={i} className="w-8 h-8 rounded-full bg-gray-300">
                       <img
                         src={`${i}.png`}
-                        className="rounded-full"
+                        className="rounded-full w-full h-full object-cover"
                         alt={`Cliente ${i}`}
                       />
                     </div>
@@ -93,15 +123,16 @@ const HeroSection = () => {
               <span className="text-red-600 font-bold">
                 Clienti Soddisfatti
               </span>
-            </div>
-            <div className="flex text-yellow-400 mt-1 text-xl items-center">
-              {"★".repeat(4.7)}
-              <span className="text-[#6D6D6D] text-sm font-bold">
-                (4 Stelle)
-              </span>
+              <div className="flex text-yellow-400 mt-1 text-xl items-center">
+                {"★".repeat(4)}
+                <span className="text-[#6D6D6D] text-sm font-bold ml-2">
+                  (4.7 Stelle)
+                </span>
+              </div>
             </div>
           </div>
 
+          {/* Floating Booking Label */}
           <div className="absolute bottom-2 left-1 bg-white p-4 rounded-lg shadow-lg z-20">
             <div className="flex gap-2">
               <div className="p-1 bg-[#EFF9FF]">

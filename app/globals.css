@@ -151,3 +151,9 @@ body {
   top: 0 !important;
 }
 /* RESEND_API_KEY = "re_dZuzGbPa_CASNjRo88N3yd2jM5s6Yqou1" */
+.bg-img {
+  background-image: url("/bg-4.jpeg"); /* Replace with your actual path */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

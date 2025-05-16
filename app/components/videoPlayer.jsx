@@ -88,6 +88,10 @@ const VideoCarousel = () => {
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125193/IMG_1536_ogvyvi.mp4",
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747125027/IMG_15340_p9wmzc.mp4",
     "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747121874/Segreto_del_sorriso_yurpq2.mov",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747388332/IMG_24750_k2qe4q.mp4",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747388426/IMG_24740_r0sqjj.mp4",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747388924/IMG_24750_nzc8qf.mp4",
+    "https://res.cloudinary.com/dvtvlkpt1/video/upload/v1747388961/IMG_22430_unrivc.mp4",
   ];
 
   // Pre-process videos to get optimized URLs
@@ -342,7 +346,7 @@ const VideoCarousel = () => {
     <div className="p-4 md:p-8 relative mt-24">
       <div className="max-w-4xl mx-auto mb-12">
         <h1 className="text-4xl md:text-5xl font-bold text-center mb-6 text-[#c46255]">
-          Blogs
+          Vlogs
         </h1>
       </div>
 
