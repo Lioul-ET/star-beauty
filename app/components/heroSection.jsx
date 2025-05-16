@@ -72,7 +72,7 @@ const HeroSection = () => {
             </span>
           </h1>
 
-          <p className="mb-8 md:text-white text-black">
+          <p className="mb-8 md:text-[#ffffff] text-black font-semibold">
             Scopri cure di{" "}
             <span className="text-[#d62c16] font-semibold">
               livello mondiale
