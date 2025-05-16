@@ -65,7 +65,7 @@ const HeroSection = () => {
             <span>Un Approccio</span>
             <span className="text-[#d62c16] ml-5">Moderno</span>
             <span className="block mt-4 text-[#d62c16]">
-              alla Bellezza, <span className="ml-5 text-white">Salute</span>
+              alla Bellezza, <span className="ml-5 text-black">Salute</span>
             </span>
             <span className="block mt-4 text-[#d62c16]">
               & Cura di Sé <span className="ml-5">🇮🇹 🇦🇱</span>
