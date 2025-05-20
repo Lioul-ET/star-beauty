@@ -61,7 +61,7 @@ const AboutSection = () => {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
-              Smandaci una email per avere maggiori info
+              Mandaci una email per avere maggiori info
             </motion.button>
           </motion.div>
         </div>

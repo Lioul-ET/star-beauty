@@ -81,12 +81,12 @@ const BeautyClinic = () => {
       if (response.ok) {
         console.log("Sent");
         setStatus("Email sent successfully!");
-        toast("Appointment has been created", {
-          description: "Please wait for an email",
+        toast("Il tuo appuntamento è stato fissato.", {
+          description: "Si prega di attendere un'e-mail",
         });
       } else {
-        toast("Something went wrong!", {
-          description: "Please try again",
+        toast("Impossibile creare l'appuntamento. Riprova.", {
+          description: "Per favore riprova",
           variant: "destructive",
         });
         throw new Error(data.error || "Failed to send email");
@@ -135,7 +135,7 @@ const BeautyClinic = () => {
         <HeroSection />
       </motion.div>
 
-      <div>
+      <div id="book">
         <div className="flex items-center justify-center gap-2 mb-6 mt-14">
           <h1 className="text-4xl font-bold text-center">
             Prenota <span className="text-red-500">Il Tuo Appuntamento</span>{" "}
@@ -152,8 +152,8 @@ const BeautyClinic = () => {
         >
           Il tuo benessere è importante — e fare il primo passo verso una salute
           migliore non è mai stato così semplice.Che tu abbia bisogno di cure
-          dentali o faccette chirurgia estetica trattamenti laser il nostro team
-          è qui per aiutarti a sentirti al meglio..
+          dentali o faccette, chirurgia estetica, trattamenti laser il nostro
+          team è qui per aiutarti a sentirti al meglio..
         </motion.p>
 
         <motion.div

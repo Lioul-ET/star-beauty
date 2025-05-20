@@ -81,9 +81,8 @@ const ServicesSection = () => {
           viewport={{ once: true }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          In un mondo frenetico, la tua salute merita la massima attenzione e
-          comodità. Per questo offriamo servizi integrati pensati per soddisfare
-          le tue esigenze di cura digitale.
+          Scegli tra uno dei nostri trattamenti e chiedi una consulenza
+          gratuita! siamo italiani ma viviamo qui da 15 anni
         </motion.p>
       </motion.div>
 
