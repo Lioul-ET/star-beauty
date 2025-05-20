@@ -60,25 +60,36 @@ const HeroSection = () => {
 
       <div className="container mx-auto px-6 py-12 flex flex-wrap items-center md:mt-20  relative z-10">
         {/* Text Content */}
-        <div className="w-full md:w-1/2 block overflow-hidden break-words">
-          <h1 className={`text-4xl md:text-5xl font-bold mb-6`}>
-            <span>Un Approccio</span>
-            <span className="text-[#d62c16] ml-5">Moderno</span>
-            <span className="block mt-4 text-[#d62c16]">
-              alla Bellezza, <span className="ml-5 text-black">Salute</span>
-            </span>
-            <span className="block mt-4 text-[#d62c16]">
-              & Cura di Sé <span className="ml-5">🇮🇹 🇦🇱</span>
-            </span>
+        <div className="w-full md:w-1/2 block overflow-hidden">
+          <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <div className="flex flex-wrap gap-5">
+              <span className="inline-block">Un</span>
+              <span className="inline-block">Approccio</span>
+            </div>
+            <div className="flex flex-wrap gap-5 mt-4">
+              <span className="inline-block text-[#d62c16]">Moderno</span>
+            </div>
+            <div className="flex flex-wrap gap-5 mt-4">
+              <span className="inline-block text-[#d62c16]">alla</span>
+              <span className="inline-block text-[#d62c16]">Bellezza,</span>
+              <span className="inline-block text-black">Salute</span>
+            </div>
+            <div className="flex flex-wrap gap-5 mt-4">
+              <span className="inline-block text-[#d62c16]">&</span>
+              <span className="inline-block text-[#d62c16]">Cura</span>
+              <span className="inline-block text-[#d62c16]">di</span>
+              <span className="inline-block text-[#d62c16]">Sé</span>
+              <span className="inline-block">🇮🇹 🇦🇱</span>
+            </div>
           </h1>
 
-          <p className="mb-8  text-black ">
+          <p className="mb-8 text-black">
             Scopri cure di{" "}
-            <span className="text-[#d62c16] font-semibold">
+            <span className="text-[#d62c16] font-semibold inline-block">
               livello mondiale
             </span>{" "}
             in odontoiatria, chirurgia plastica e trattamenti laser per gli
-            occhi - tutto in un’ unica sede! I nostri dottori sono Italiani e
+            occhi - tutto in un' unica sede! I nostri dottori sono Italiani e
             non solo! Prenota ora la tua consulenza gratuita.
           </p>
 
@@ -90,7 +101,6 @@ const HeroSection = () => {
             <ChevronRight color="#fff" />
           </button>
         </div>
-
         {/* Image Section */}
         <div className="w-full md:w-1/2 relative mt-12 md:mt-0">
           <div className="w-full max-w-lg mx-auto aspect-square relative">
