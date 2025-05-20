@@ -7,7 +7,6 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 // Email template component
 const EmailTemplate = ({ bookingData }) => (
   <div>
-    <h1 style={{ color: "#333", fontFamily: "sans-serif" }}>New Customer!</h1>
     <p>FullName: {bookingData.fullName}</p>
     <p>Email: {bookingData.email}</p>
     <p>Phone: {bookingData.phone}</p>
@@ -30,7 +29,7 @@ export async function POST(req) {
 
     const data = await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: ["yimracomb@gmail.com"],
+      to: ["qendrastar2020@gmail.com"],
       subject: subject,
       react:
         subject === "Contact Form Submission"

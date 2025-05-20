@@ -17,7 +17,42 @@ const LastSection = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // ... (keep original submit logic unchanged)
+    const formData = new FormData(e.target);
+
+    const bookingData = {
+      firstName: formData.get("firstName"),
+      email: formData.get("email"),
+    };
+    try {
+      const response = await fetch("/api/send-email", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          bookingData,
+          subject: "Contact Form Submission",
+        }),
+      });
+
+      const data = await response.json();
+      console.log(response);
+      if (response.ok) {
+        console.log("Sent");
+        setStatus("Email sent successfully!");
+        toast("Grazie per averci contattato! Ti risponderemo presto.");
+      } else {
+        toast("Failed to send message. Please try again.", {
+          description: "Per favore riprova",
+          variant: "destructive",
+        });
+        throw new Error(data.error || "Failed to send email");
+      }
+    } catch (error) {
+      setStatus("Failed to send email");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
@@ -94,7 +129,7 @@ const LastSection = () => {
             />
             <button
               type="submit"
-              className="bg-[#C97A60] text-white px-6 py-2 rounded-lg flex items-center font-bold gap-2"
+              className="bg-[#C97A60] hover:bg-[#8f6557] text-white px-6 py-2 rounded-lg flex items-center font-bold gap-2"
             >
               Contattaci
               <span>
