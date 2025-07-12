@@ -8,8 +8,15 @@ import {
   Linkedin,
   Youtube,
   CircleArrowRight,
+  MapPin,
+  Clock,
+  Building,
+  Waves,
+  Car,
+  Building2,
 } from "lucide-react";
 import { toast } from "sonner";
+import { motion } from "framer-motion";
 
 const LastSection = () => {
   const [status, setStatus] = useState("");
@@ -109,34 +116,78 @@ const LastSection = () => {
             te.
           </p>
 
-          <form
-            onSubmit={handleSubmit}
-            className="mt-8 max-w-2xl mx-auto flex flex-col md:flex-row gap-4"
-          >
-            <input
-              type="text"
-              name="firstName"
-              placeholder="Nome"
-              className="flex-1 px-4 py-4 border-[2px] rounded-lg border-[#C58F72]"
-              required
-            />
-            <input
-              type="email"
-              name="email"
-              placeholder="Email"
-              className="flex-1 px-4 py-4 border-[2px] rounded-lg border-[#C58F72]"
-              required
-            />
-            <button
-              type="submit"
-              className="bg-[#C97A60] hover:bg-[#8f6557] text-white px-6 py-2 rounded-lg flex items-center font-bold gap-2"
+          <div className="mt-12 grid md:grid-cols-2 gap-8">
+            {/* Contact Form */}
+            <div>
+              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                <input
+                  type="text"
+                  name="firstName"
+                  placeholder="Nome"
+                  className="px-4 py-4 border-[2px] rounded-lg border-[#C58F72]"
+                  required
+                />
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Email"
+                  className="px-4 py-4 border-[2px] rounded-lg border-[#C58F72]"
+                  required
+                />
+                <textarea
+                  name="message"
+                  placeholder="Il tuo messaggio"
+                  className="px-4 py-4 border-[2px] rounded-lg border-[#C58F72] h-32"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="bg-[#C97A60] hover:bg-[#8f6557] text-white px-6 py-4 rounded-lg flex items-center justify-center font-bold gap-2"
+                >
+                  Contattaci
+                  <CircleArrowRight />
+                </button>
+              </form>
+            </div>
+
+            {/* Map and Location Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="bg-white rounded-xl shadow-lg overflow-hidden"
             >
-              Contattaci
-              <span>
-                <CircleArrowRight />
-              </span>
-            </button>
-          </form>
+              <div className="h-64 relative">
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2996.750680203405!2d19.436541776891747!3d41.31020817131897!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x134fdb4a1451c225%3A0x2177bb098d919164!2sSwimming%20Pool%20Gym%20%22ventus%20Sport%20Center%22%2C%20Ventus%20Harbor!5e0!3m2!1sen!2s!4v1707296183736!5m2!1sen!2s"
+                  className="w-full h-full border-0"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+
+              <div className="p-6 bg-rose-50">
+                <h3 className="text-xl font-bold text-gray-800 mb-4">
+                  La Zona
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <MapPin className="text-[#C97A60]" />
+                    <p>Rruga Taulantia, Lagja Nr 2, Durrës</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Waves className="text-[#C97A60]" />
+                    <p>Porto turistico di Durazzo - 5 minuti a piedi</p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <Building className="text-[#C97A60]" />
+                    <p>Vicino al Ventus Sport Center</p>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
         </section>
       </main>
 
